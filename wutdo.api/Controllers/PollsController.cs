@@ -18,6 +18,28 @@ namespace wutdo.api.Controllers
         public PollsController(WutdoContext context)
         {
             _context = context;
+
+            if(_context.Polls.Count() < 1)
+            {
+                var newPolls = new List<Poll>
+                {
+                    new Poll
+                    {
+                        Id = 1,
+                        Name = "FirstPoll",
+                        Question = "Is this the first one?!"
+                    },
+                    new Poll
+                    {
+                        Id = 2,
+                        Name = "The second poll!",
+                        Question = "Cool innit?"
+                    }
+                };
+
+                _context.AddRange(newPolls);
+                _context.SaveChanges();
+            }
         }
 
         // GET: api/Polls
