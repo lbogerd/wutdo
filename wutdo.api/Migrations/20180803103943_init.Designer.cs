@@ -7,8 +7,8 @@ using wutdo.api.Models;
 
 namespace wutdo.api.Migrations
 {
-    [DbContext(typeof(WutdocContext))]
-    [Migration("20180803102500_init")]
+    [DbContext(typeof(WutdoContext))]
+    [Migration("20180803103943_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

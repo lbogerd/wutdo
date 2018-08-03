@@ -6,8 +6,8 @@ using wutdo.api.Models;
 
 namespace wutdo.api.Migrations
 {
-    [DbContext(typeof(WutdocContext))]
-    partial class WutdocContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(WutdoContext))]
+    partial class WutdoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
