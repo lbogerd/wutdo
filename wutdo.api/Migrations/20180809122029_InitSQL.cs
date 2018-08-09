@@ -1,21 +1,31 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace wutdo.api.Migrations
 {
-    public partial class updatedPollAndAddedAnswerOptions : Migration
+    public partial class InitSQL : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Name",
-                table: "Polls");
+            migrationBuilder.CreateTable(
+                name: "Polls",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Question = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Polls", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "AnswerOption",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Order = table.Column<int>(nullable: true),
                     AnswerText = table.Column<string>(nullable: true),
                     PollId = table.Column<int>(nullable: true)
@@ -42,10 +52,8 @@ namespace wutdo.api.Migrations
             migrationBuilder.DropTable(
                 name: "AnswerOption");
 
-            migrationBuilder.AddColumn<string>(
-                name: "Name",
-                table: "Polls",
-                nullable: true);
+            migrationBuilder.DropTable(
+                name: "Polls");
         }
     }
 }
