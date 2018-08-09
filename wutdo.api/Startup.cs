@@ -25,9 +25,14 @@ namespace wutdo.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var userId = Configuration["DbAdmin"];
+            var password = Configuration["DbAdminPassword"];
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<Models.WutdoContext>(options => 
-                options.UseSqlite("Data Source=wutdo.db"));
+            services.AddDbContext<Models.WutdoContext>(options =>
+                options.UseSqlServer("Server=tcp:wutdo.database.windows.net,1433;Initial Catalog=wutdo-db;Persist Security Info=False;" +
+                $"User ID={userId};Password={password};" +
+                "MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
