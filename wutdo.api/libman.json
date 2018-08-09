@@ -12,9 +12,18 @@
     {
       "provider": "cdnjs",
       "library": "axios@0.18.0",
-      "destination": "wwwroot/",
+      "destination": "wwwroot/lib/",
       "files": [
         "axios.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "vuetify@1.1.10",
+      "destination": "wwwroot/lib/",
+      "files": [
+        "vuetify.min.js",
+        "vuetify.min.css"
       ]
     }
   ]
