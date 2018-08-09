@@ -1,2 +1,2 @@
 # wutdo
-Simple polling web page with .NET Core and SQLite back end, hostable with Docker
+Simple polling web page with .NET Core and SQL back end, hostable with Docker
