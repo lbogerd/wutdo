@@ -27,7 +27,6 @@ namespace wutdo.api
         {
             var userId = Configuration["DbAdmin"];
             var password = Configuration["DbAdminPassword"];
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<Models.WutdoContext>(options =>
                 options.UseSqlServer("Server=tcp:wutdo.database.windows.net,1433;Initial Catalog=wutdo-db;Persist Security Info=False;" +
@@ -43,6 +42,8 @@ namespace wutdo.api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }

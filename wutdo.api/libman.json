@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "vue@2.5.17",
+      "destination": "wwwroot/lib/",
+      "files": [
+        "vue.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "axios@0.18.0",
+      "destination": "wwwroot/",
+      "files": [
+        "axios.min.js"
+      ]
+    }
+  ]
+}
