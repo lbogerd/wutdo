@@ -26,13 +26,11 @@ namespace wutdo.api.Controllers
                     new Poll
                     {
                         Id = 1,
-                        Name = "FirstPoll",
                         Question = "Is this the first one?!"
                     },
                     new Poll
                     {
                         Id = 2,
-                        Name = "The second poll!",
                         Question = "Cool innit?"
                     }
                 };
