@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using wutdo.api.Models;
 
 namespace wutdo.api.Migrations
 {
     [DbContext(typeof(WutdoContext))]
-    partial class WutdoContextModelSnapshot : ModelSnapshot
+    [Migration("20180809122029_InitSQL")]
+    partial class InitSQL
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

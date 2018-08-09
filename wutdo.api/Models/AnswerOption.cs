@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace wutdo.api.Models
 {
-    public class Poll
+    public class AnswerOption
     {
         public int Id { get; set; }
-        public string Question { get; set; }
+        public int? Order { get; set; }
+        public string AnswerText { get; set; }
 
-        public virtual ICollection<AnswerOption> AnswerOptions { get; set; }
+        public virtual Poll Poll { get; set; }
     }
 }
