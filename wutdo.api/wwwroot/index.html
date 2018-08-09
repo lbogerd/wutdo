@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' 
+          rel="stylesheet" />
     <link href="lib/vuetify.min.css" rel="stylesheet" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,
+          user-scalable=no, minimal-ui" />
     <title></title>
 </head>
 <body>
@@ -12,15 +14,38 @@
         <v-app>
             <v-content>
                 <v-container>Hello world</v-container>
+                <div v-for="poll in polls" :key="poll.d">
+                    <h2>{{ poll.question }}</h2>
+                </div>
             </v-content>
         </v-app>
     </div>
 
-    <script src="lib/vue.min.js"></script>
+    <script src="lib/vue.js"></script>
     <script src="lib/vuetify.min.js"></script>
     <script src="lib/axios.min.js"></script>
     <script>
-        new Vue({ el: '#app' })
+        new Vue({
+            el: '#app',
+
+            data: {
+                loading: true,
+                polls: []
+            },
+
+            methods: {
+                getPolls() {
+                    return axios.get('/api/polls/')
+                        .then(response => {
+                            this.polls.push.apply(this.polls, response.data)
+                        });
+                }
+            },
+
+            created: function() {
+                this.getPolls()
+            }
+        })
     </script>
 </body>
 </html>

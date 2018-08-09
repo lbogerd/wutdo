@@ -6,7 +6,7 @@
       "library": "vue@2.5.17",
       "destination": "wwwroot/lib/",
       "files": [
-        "vue.min.js"
+        "vue.js"
       ]
     },
     {
