@@ -14,7 +14,7 @@
         <v-app>
             <v-content>
                 <v-container>Hello world</v-container>
-                <div v-for="poll in polls" :key="poll.d">
+                <div v-for="poll in polls" :key="poll.id">
                     <h2>{{ poll.question }}</h2>
                 </div>
             </v-content>
