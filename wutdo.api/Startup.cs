@@ -25,10 +25,13 @@ namespace wutdo.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var userId = Configuration["DbAdmin"];
+            var password = Configuration["DbAdminPassword"];
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<Models.WutdoContext>(options =>
                 options.UseSqlServer("Server=tcp:wutdo.database.windows.net,1433;Initial Catalog=wutdo-db;Persist Security Info=False;" +
-                "User ID=FRIFJ9;Password=gSgKF2ElIzrzFq4ufDY0;" +
+                $"User ID={userId};Password={password};" +
                 "MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
 
