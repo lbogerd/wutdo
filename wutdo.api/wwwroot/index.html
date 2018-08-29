@@ -13,10 +13,23 @@
     <div id="app">
         <v-app>
             <v-content>
-                <v-container>Hello world</v-container>
-                <div v-for="poll in polls" :key="poll.id">
-                    <h2>{{ poll.question }}</h2>
-                </div>
+                <v-container
+                    grid-list-md>
+                    <v-layout column>
+                        <v-flex 
+                            xs12 
+                            sm10 offset-sm1 
+                            md8 offset-md2
+                            v-for="poll in polls" 
+                            :key="poll.id">
+                            <v-card>
+                                <v-card-text>
+                                        {{ poll.question }}
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>    
+                    </v-layout>
+                </v-container>
             </v-content>
         </v-app>
     </div>
