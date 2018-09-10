@@ -42,7 +42,9 @@ namespace wutdo.api.Controllers
         [HttpGet]
         public IEnumerable<Poll> GetPolls()
         {
-            return _context.Polls;
+            return _context.Polls
+                .Include(p => p.AnswerOptions)
+                .ToList();
         }
 
         // GET: api/Polls/5
